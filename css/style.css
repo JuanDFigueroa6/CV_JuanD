@@ -1,0 +1,369 @@
+/* Final clean style.css - mobile-first theme: azul noche + verde neón */
+:root{
+  /* New palette: deep teal, teal-green, vivid lime */
+  --primary:#042940; /* deep teal */
+  --primary-dark:#02292a; /* darker for gradients */
+  --secondary:#005C53; /* teal-green */
+  --accent:#DBF227; /* vivid lime (calls-to-action) */
+  --text:#F7F9F8; /* near-white for contrast */
+  --bg:var(--primary);
+  --card-bg:rgba(255,255,255,0.03);
+  /* Neutral muted text for secondary copy (was lime; changed for legibility) */
+  --muted:rgba(255,255,255,0.72);
+  /* Softer accent variants for shadows and outlines */
+  --accent-soft: rgba(219,242,39,0.16);
+  --transition:all .32s cubic-bezier(.2,.9,.2,1);
+  --shadow:0 10px 30px rgba(2,6,10,0.6);
+  --radius:12px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+.container{width:92%;max-width:1200px;margin:0 auto}
+.section{padding:64px 0}
+
+/* Module centering helper: use on section children to center components */
+.module{max-width:1200px;margin-left:auto;margin-right:auto;width:100%;display:block}
+.module-inner{margin-left:auto;margin-right:auto;display:block}
+
+/* Utility: center grid items when desired (used by portfolio.grid via justify-items) */
+.center-items{display:grid;justify-items:center}
+
+.navbar{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;max-width:1200px;margin:0 auto;width:92%}
+header{background:rgba(255,255,255,0.02);position:fixed;top:0;width:100%;z-index:1000;box-shadow:var(--shadow);transition:background 360ms ease, box-shadow 360ms ease, padding 360ms ease}
+/* Avatar central del header */
+.header-avatar{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;overflow:hidden;border:3px solid transparent;transition:transform 320ms cubic-bezier(.2,.9,.2,1),opacity 320ms ease,box-shadow 320ms ease;transform-origin:center}
+.header-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Estado inicial: avatar oculto/colapsado para que aparezca al hacer scroll */
+.header-avatar{opacity:0;transform:translate(-50%,-30%) scale(0.6)}
+
+/* Responsive: ajustar tamaño del avatar y padding lateral en pantallas más anchas */
+@media (min-width: 768px) {
+  .navbar{padding:18px 24px;width:88%}
+  .header-avatar{width:72px;height:72px}
+}
+
+@media (min-width: 1024px) {
+  .navbar{padding:20px 32px;width:80%}
+  .header-avatar{width:84px;height:84px}
+}
+.logo{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--accent);display:flex;align-items:center}
+.logo i{margin-right:8px;font-size:1.4rem}
+.nav-links{display:none;list-style:none}
+.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:var(--bg);padding:18px 0;box-shadow:var(--shadow)}
+.nav-links li{margin:10px 0;text-align:center}
+.nav-links a{text-decoration:none;color:var(--text);font-weight:600}
+.hamburger{background:none;border:none;font-size:1.4rem;color:var(--text)}
+
+/* Floating page indicator */
+.page-indicator{position:fixed;left:18px;bottom:18px;background:rgba(2,6,10,0.6);color:var(--text);padding:8px 12px;border-radius:8px;font-weight:700;box-shadow:0 8px 26px rgba(0,0,0,0.4);z-index:1200;opacity:0;transition:opacity .28s ease, transform .28s ease}
+.page-indicator[aria-hidden="false"]{opacity:1}
+.nav-links a.active-page{color:var(--accent);position:relative}
+.nav-links a.active-page::after{content:'';height:3px;display:block;width:100%;background:var(--accent);position:absolute;left:0;bottom:-8px;border-radius:2px}
+
+/* Header cuando se hace scroll: fondo claro y enlaces oscuros para legibilidad */
+header.scrolled { background: rgba(255,255,255,0.96); box-shadow: 0 6px 24px rgba(2,6,10,0.12); padding:10px 16px }
+header.scrolled .nav-links a { color: #1b1b1b; transition: color 260ms ease }
+header.scrolled .hamburger { color: #1b1b1b; transition: color 260ms ease }
+header.scrolled .logo { color: #051826; }
+header.scrolled .logo i { color: var(--accent); }
+
+/* Mostrar avatar al hacer scroll */
+
+/* Mostrar avatar en header cuando se hace scroll en desktop */
+header.scrolled .header-avatar{opacity:1;box-shadow:0 8px 26px rgba(2,6,10,0.18);border-color:var(--accent-soft)}
+
+/* Interacción y accesibilidad para avatar (ahora es un enlace). Default: inline and visible on mobile */
+.header-avatar{display:inline-block;cursor:pointer;text-decoration:none;width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid transparent;margin-left:12px;opacity:1;transition:transform 320ms cubic-bezier(.2,.9,.2,1),opacity 320ms ease,box-shadow 320ms ease}
+.header-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.header-avatar:focus{outline:none}
+.header-avatar:focus-visible{box-shadow:0 0 0 3px var(--accent-soft);border-color:rgba(219,242,39,0.22)}
+.header-avatar:hover{transform:scale(1.03)}
+
+.hero{padding:100px 0 40px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--text);overflow:hidden}
+  .whatsapp-float a{display:flex;align-items:center;justify-content:center;width:54px;height:54px;background:var(--secondary);color:var(--primary);border-radius:50%;box-shadow:0 6px 18px rgba(219,242,39,0.16)}
+.hero-text h1{font-size:1.9rem;line-height:1.12;margin-bottom:14px}
+.hero-text p{font-size:1.02rem;opacity:.95;margin-bottom:20px}
+.hero-btns{display:flex;flex-direction:column;gap:20px;margin-bottom:12px}
+
+/* Special style for portfolio CTA buttons requested: white text normally, on hover outline + green text */
+.btn-portfolio{color:#fff;background:var(--accent);border:2px solid transparent}
+.btn-portfolio:hover,.btn-portfolio:focus{background:transparent;color:var(--accent);border-color:var(--accent);outline:none}
+
+/* Homepage-specific: make the 'Ver mi trabajo' button green background with dark text, hover -> outline only */
+body[data-page="inicio"] .btn-portfolio{background:var(--accent);color:var(--primary);border-color:transparent}
+body[data-page="inicio"] .btn-portfolio:hover, body[data-page="inicio"] .btn-portfolio:focus{background:transparent;color:var(--accent);border-color:var(--accent)}
+
+/* About page: apply same visual treatment to 'Ver proyectos' */
+body[data-page="acerca"] .btn-portfolio{background:var(--accent);color:var(--primary);border-color:transparent}
+body[data-page="acerca"] .btn-portfolio:hover, body[data-page="acerca"] .btn-portfolio:focus{background:transparent;color:var(--accent);border-color:var(--accent)}
+.site-footer .container{justify-items:center}
+.site-footer .footer-col{text-align:left}
+.btn-portfolio:focus-visible{box-shadow:0 0 0 4px var(--accent-soft)}
+
+/* Hero layout: mobile stack, desktop two-column (text left, carousel right) */
+.hero-content{display:flex;flex-direction:column;gap:20px;align-items:stretch}
+.hero-text{order:1}
+.hero-image{order:2}
+
+@media (min-width: 768px) {
+  .navbar{padding:18px 24px;width:88%}
+  /* On desktop the avatar is centered absolute in the header and initially hidden until scroll */
+  .header-avatar{width:84px;height:84px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:0}
+  /* Preserve the translate when hovering so the avatar does not shift position */
+  .header-avatar:hover{transform:translate(-50%,-50%) scale(1.03)}
+}
+  .hero-btns{flex-direction:row}
+.custom-audio{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.audio-ui{display:flex;align-items:center;gap:12px;background:var(--card-bg);padding:8px;border-radius:10px}
+.audio-play{background:var(--accent);color:var(--primary-dark);border:none;padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:700}
+.audio-play:focus{outline:none;box-shadow:0 0 0 4px var(--accent-soft)}
+.audio-time{font-size:0.9rem;color:var(--muted);min-width:72px;text-align:right}
+.audio-progress{flex:1;height:8px;background:rgba(255,255,255,0.06);border-radius:6px;position:relative;cursor:pointer}
+.audio-progress .filled{position:absolute;left:0;top:0;height:100%;width:0;background:var(--accent);border-radius:6px}
+.audio-meta{font-size:0.95rem;color:var(--muted)}
+
+/* Ensure audio UI is responsive */
+@media (max-width:767px){
+  .audio-ui{padding:10px}
+  .audio-time{display:none}
+}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;cursor:pointer;border:none;font-family:'Montserrat',sans-serif}
+.btn-primary{background:var(--accent);color:var(--primary-dark)}
+.btn-secondary{background:transparent;color:var(--text);border:2px solid var(--text)}
+.hero-image{height:240px;border-radius:var(--radius);background:linear-gradient(45deg,rgba(255,255,255,0.03),rgba(255,255,255,0.06));position:relative;overflow:hidden;display:flex;align-items:center}
+.bg-overlay{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0.04;pointer-events:none;z-index:0}
+.bg-overlay::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:28%; background:linear-gradient(to bottom, rgba(0,0,0,0), var(--bg)); pointer-events:none }
+
+.hero-image::before{ content:''; position:absolute; inset:0; background-image: linear-gradient(to bottom, rgba(2,6,10,0) 60%, var(--bg) 100%), url('../assets/blog3.jpg'); background-position:center; background-size:cover; opacity:0.08; pointer-events:none }
+
+@media (min-width:768px){
+  .bg-overlay, .hero-image::before{ background-attachment:fixed }
+}
+
+/* Carousel styles */
+.carousel{position:relative;width:100%;max-width:520px;margin:0 auto;padding:12px}
+.carousel-track{display:flex;transition:transform .5s ease;will-change:transform}
+.carousel-slide{min-width:100%;flex:0 0 100%;display:flex;align-items:center;justify-content:center}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
+.carousel-prev,.carousel-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(2,6,10,0.5);color:var(--text);border:none;padding:8px 12px;border-radius:8px;cursor:pointer}
+.carousel-prev{left:12px}
+.carousel-next{right:12px}
+.carousel-prev:focus,.carousel-next:focus{outline:none;box-shadow:0 0 0 4px var(--accent-soft)}
+.carousel-dots{display:flex;gap:8px;justify-content:center;margin-top:10px}
+.carousel-dots .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.18);border:none;cursor:pointer}
+.carousel-dots .dot[aria-selected="true"]{background:var(--accent);box-shadow:0 6px 18px var(--accent-soft)}
+
+@media (min-width:768px){
+  .hero-btns{gap:16px}
+  .hero-image{height:360px}
+  .carousel{max-width:640px}
+}
+
+.services-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.service-card{background:var(--card-bg);border-radius:var(--radius);padding:26px;text-align:center;box-shadow:var(--shadow);transition:var(--transition)}
+.service-card:hover{transform:translateY(-8px)}
+.service-icon{font-size:2.4rem;color:var(--accent);margin-bottom:14px}
+
+/* Icon button inside service cards */
+.service-icon-btn{background:transparent;border:none;padding:0;margin:0;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.service-icon-btn:focus{outline:none}
+.service-icon-btn:focus-visible{box-shadow:0 0 0 3px rgba(219,242,39,0.14);border-radius:999px}
+.service-card h3{margin-top:8px}
+
+/* Modal para servicios */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:20000}
+.modal[aria-hidden="false"]{display:flex}
+.modal-overlay{position:fixed;inset:0;background:rgba(2,6,10,0.6)}
+.modal-dialog{position:relative;background:var(--bg);color:var(--text);width:94%;max-width:720px;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,0.6);transform:translateY(12px) scale(.98);opacity:0;transition:transform .28s ease, opacity .28s ease}
+.modal[aria-hidden="false"] .modal-dialog{transform:none;opacity:1}
+.modal-close{position:absolute;right:12px;top:10px;background:transparent;border:none;color:var(--text);font-size:1.6rem;cursor:pointer}
+.modal-content{padding:32px}
+.modal-content h3{margin-bottom:14px}
+.modal-content p{color:var(--muted);font-size:1rem;line-height:1.5}
+
+/* Modal grid: imagen + contenido */
+.modal-grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:start}
+.modal-image img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+.service-bullets{margin:14px 0 20px 20px;color:var(--muted)}
+.service-bullets li{margin-bottom:10px}
+.modal-cta{margin-top:8px}
+
+/* CTA styling within modal */
+.modal-cta .btn{padding:10px 16px}
+
+/* prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .modal-dialog, .header-avatar, .service-card { transition: none !important; animation: none !important }
+}
+
+@media(min-width:768px){.modal-grid{grid-template-columns:42% 58%}.modal-image img{height:220px}}
+
+/* Lightbox / gallery media sizing - keep videos/images inside modal bounds */
+.lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:30000}
+.lightbox[aria-hidden="false"]{display:flex}
+.lightbox-overlay{position:fixed;inset:0;background:rgba(2,6,10,0.75)}
+.lightbox-dialog{position:relative;background:var(--bg);color:var(--text);width:94%;max-width:920px;max-height:90vh;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,0.6);overflow:auto;padding:14px;display:flex;align-items:center;justify-content:center}
+.lightbox-inner{display:flex;flex-direction:column;gap:12px;align-items:center;width:100%}
+.lightbox-media{display:flex;align-items:center;justify-content:center;max-width:100%;max-height:70vh;overflow:hidden}
+.lightbox-media img,.lightbox-media video{max-width:100%;max-height:70vh;width:auto;height:auto;object-fit:contain;border-radius:8px}
+.lightbox-video{background:#000;display:block}
+.lightbox-caption{color:var(--muted);text-align:center;padding-top:6px}
+.lightbox-close{position:absolute;right:12px;top:10px;background:transparent;border:none;color:var(--text);font-size:1.6rem;cursor:pointer}
+
+@media(min-width:1024px){
+  .lightbox-dialog{max-width:1100px}
+  .lightbox-media{max-height:80vh}
+}
+
+.whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:1100}
+.whatsapp-float a{display:flex;align-items:center;justify-content:center;width:54px;height:54px;background:var(--secondary);color:var(--primary);border-radius:50%;box-shadow:0 6px 18px rgba(219,242,39,0.16)}
+
+@media (min-width: 768px) {
+    .section { padding: 72px 0; }
+    .hero { padding: 140px 0 60px; }
+    .hero-text h1 { font-size: 2.4rem; }
+    .hero-btns { flex-direction: row; gap: 16px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .hamburger { display: none; }
+    .nav-links { display: flex; flex-direction: row; position: static; background: none; box-shadow: none; padding: 0; }
+    .nav-links li { margin-left: 20px; }
+}
+
+/* Subtle hero background layer for parallax/slide on scroll */
+.hero-bg{position:absolute;inset:0;opacity:0.06;background-position:center;background-size:cover;background-repeat:no-repeat;background-attachment:local;transform:none;transition:opacity 240ms linear;pointer-events:none;z-index:0}
+.hero .container{position:relative;z-index:2}
+.hero-bg::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:28%; background:linear-gradient(to bottom, rgba(0,0,0,0), var(--bg)); pointer-events:none }
+
+/* Desktop: prefer fixed background for parallax-like feel (fallback to local on mobile) */
+@media (min-width:768px){
+  .hero-bg{background-attachment:fixed}
+}
+
+/* Soften site-wide reveal animations for smoother scrolling */
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:none}}
+@keyframes slideInRight{from{opacity:0;transform:translateX(6px)}to{opacity:1;transform:none}}
+@keyframes slideOutRight{from{transform:none;opacity:1}to{transform:translateX(8px);opacity:0}}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.04)}100%{transform:scale(1)}}
+
+/* Animation utility classes */
+.animate-fade{animation:fadeIn .9s ease-out}
+.animate-left{animation:slideInLeft .9s ease-out}
+.animate-right{animation:slideInRight .9s ease-out}
+.animate-pulse{animation:pulse 1.2s ease-in-out infinite}
+/* Small slide-out utility used by notifications */
+.animate-out-right{animation:slideOutRight .28s ease forwards}
+
+/* Reduce transition speed globally for smoother/softer scroll animations */
+*{transition-timing-function:cubic-bezier(.22,.9,.35,1)}
+
+/* WhatsApp: higher on screen and accent colored */
+.whatsapp-float{position:fixed;right:18px;bottom:36px;z-index:1100}
+.whatsapp-float a{display:flex;align-items:center;justify-content:center;width:54px;height:54px;background:var(--accent);color:var(--primary);border-radius:50%;box-shadow:0 8px 20px rgba(2,6,10,0.12);transition:var(--transition)}
+.whatsapp-float a i{color:var(--primary);font-size:1.4rem}
+.whatsapp-float a:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,10,0.14)}
+
+@media (min-width: 1024px) {
+    .hero-content { flex-direction: row; align-items: center; }
+    .hero-text, .hero-image { flex: 1; }
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero-image { height: 360px; }
+    .navbar { padding: 14px 32px; }
+    header.scrolled { padding: 10px 32px; }
+}
+
+/* Footer styles */
+.site-footer{
+  padding: 2rem 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.35));
+  color: var(--text);
+  margin-top: 3rem;
+}
+.site-footer .container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.site-footer h4{margin-bottom:0.5rem}
+.footer-social a{margin-right:0.5rem;color:var(--text);opacity:0.95}
+.footer-bottom{margin-top:1rem;text-align:center;color:var(--muted);font-size:0.9rem}
+.site-footer a{color:var(--accent);text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+@media(max-width:800px){
+  .site-footer .container{grid-template-columns:1fr;gap:1rem;padding:0 1rem}
+  .site-footer{padding:1.5rem 0}
+}
+
+/* Embed player: fade-in/out and close button inside portfolio cards */
+.embed-player{position:relative;margin-top:12px;opacity:0;transform:translateY(6px);transition:opacity .28s ease, transform .28s ease;max-width:100%;border-radius:12px;overflow:hidden}
+.embed-player[aria-hidden="false"]{opacity:1;transform:none}
+.embed-player iframe{display:block;width:100%;border:0;border-radius:12px}
+
+/* Close button that appears at the top-right corner of the embed */
+.embed-close{position:absolute;right:10px;top:8px;background:rgba(0,0,0,0.45);color:var(--text);border:none;padding:6px 8px;border-radius:8px;cursor:pointer;font-size:0.95rem;backdrop-filter:blur(6px);z-index:6}
+.embed-close:focus{outline:none;box-shadow:0 0 0 4px var(--accent-soft)}
+.embed-close i{pointer-events:none}
+
+/* Small responsive tweak: reduce iframe height on narrow screens for better fit */
+@media (max-width:600px){
+  .embed-player iframe{height:220px !important}
+}
+
+/* Wrapper around embedded iframes to apply site styling (shadow, bg, padding) */
+.embed-wrap{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px;box-shadow:0 12px 30px rgba(2,6,10,0.5);border:1px solid rgba(255,255,255,0.03)}
+.embed-wrap iframe{border-radius:10px;display:block}
+
+/* Loading state: show a centered spinner until iframe load completes */
+.embed-wrap.embed-loading{position:relative;min-height:80px;display:flex;align-items:center;justify-content:center}
+.embed-spinner{width:44px;height:44px;border-radius:50%;border:4px solid rgba(255,255,255,0.08);border-top-color:var(--accent);animation:spin 1s linear infinite}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* ===== About page module styles (moved from acerca-de-mi.html) ===== */
+.module{display:block;background:var(--card-bg);padding:20px;border-radius:14px;box-shadow:0 8px 22px rgba(4,41,48,0.06);overflow:hidden}
+.module + .module{margin-top:18px}
+.module-badge{display:inline-block;padding:10px 18px;border-radius:50px;border:2px solid var(--secondary);background:linear-gradient(180deg, rgba(0,92,83,0.06), rgba(0,92,83,0.03));margin-bottom:12px}
+.module-badge h2{margin:0;font-size:1.28rem;line-height:1;color:var(--text);display:flex;align-items:center;gap:10px;font-weight:700}
+.module-badge i{color:var(--accent);font-size:1.05rem}
+.module-body{opacity:0;transform:translateY(16px) scale(.995);transition:opacity 320ms ease,var(--t,transform) 320ms cubic-bezier(.2,.9,.2,1);will-change:transform,opacity}
+.module.show .module-body{opacity:1;transform:translateY(0) scale(1)}
+.module{--delay:0ms}
+.module.show .module-body{transition-delay:var(--delay)}
+.module-body p, .module-body li{color:var(--text);font-size:1rem}
+.module-body p strong{color:var(--text)}
+.skills-grid{list-style:none;padding-left:0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0}
+.skills-grid li{display:flex;align-items:center;gap:10px;color:var(--text)}
+.skills-grid li i{color:var(--accent);min-width:18px}
+.exp-item h3{margin:6px 0 8px;font-size:1.04rem;color:var(--text);font-weight:700}
+@media (max-width:720px){.module-badge{border-radius:40px;padding:8px 14px}.module-badge h2{font-size:1.05rem}}
+
+/* Typewriter: per-line container and caret */
+.type-line{display:inline-block;white-space:pre-wrap;min-height:1.1em}
+.type-line.caret::after{content:'';display:inline-block;width:2px;height:1.05em;background:var(--accent);margin-left:8px;vertical-align:bottom;animation:tw-blink 1s steps(1) infinite}
+@keyframes tw-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
+/* ensure typewriter inherits heading sizes on responsive */
+h1 .type-line{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.9rem}
+@media (min-width:768px){h1 .type-line{font-size:2.4rem}}
+
+/* small helper: accent line style if needed */
+.type-line.accent{color:var(--accent)}
+
+/* end moved-about-styles */
+
+/* ===== Experience icons and projects highlight ===== */
+/* Make icons in experience subtitles separated and green to match site palette */
+.exp-item h3{display:flex;align-items:center;gap:10px}
+.exp-item h3 i{color:var(--secondary);font-size:1.05rem;flex:0 0 auto}
+
+/* Center the projects area and style the button consistently */
+.projects-highlight{display:flex;justify-content:center;align-items:center;padding-top:8px}
+.projects-highlight .projects-btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;background:var(--card-bg);color:var(--text);padding:12px 18px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);min-width:220px}
+.projects-highlight .projects-btn:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(2,6,10,0.24)}
+
+/* Center the projects section title and ensure spacing */
+.projects-section{text-align:center;padding-top:8px}
+.projects-section h2{margin-bottom:10px}

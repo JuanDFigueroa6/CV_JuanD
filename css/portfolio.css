@@ -1,0 +1,78 @@
+.portfolio-hero { padding:120px 0 56px; background:linear-gradient(135deg,var(--primary-dark),var(--primary)); color:var(--text); text-align:center }
+
+.portfolio-hero h1{font-family:'Montserrat',sans-serif;font-weight:700;font-size:2rem;margin-bottom:14px;color:var(--text);line-height:1.12;letter-spacing:0.2px}
+.portfolio-hero p{font-size:1.04rem;color:var(--muted);margin-top:10px}
+
+/* Filter Buttons */
+.filter-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:32px}
+.filter-controls{display:none;} /* filters intentionally removed */
+
+/* Portfolio Grid */
+.grid{display:grid;grid-template-columns:1fr;gap:20px;justify-items:center}
+
+.portfolio-item{background:var(--card-bg);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);opacity:0;transform:translateY(20px);width:100%;max-width:420px;margin:0 auto}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Reveal on scroll: slides up smoothly when .is-visible is added */
+.portfolio-item{transition:transform .56s cubic-bezier(.22,.9,.35,1), opacity .56s cubic-bezier(.22,.9,.35,1)}
+.portfolio-item.is-visible{opacity:1;transform:none}
+
+.item-image{height:180px;background:linear-gradient(45deg,var(--primary),var(--primary-dark));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+
+.item-image i{font-size:2.6rem;color:var(--accent);opacity:0.98}
+
+/* Ensure thumbnails are centered and cover the item-image area */
+.item-image img{width:100%;height:100%;object-fit:cover;display:block;object-position:center center}
+
+.item-info{padding:18px}
+.item-info h3{margin-bottom:10px;font-size:1.05rem;font-family:'Montserrat',sans-serif;font-weight:600;color:var(--text);transition:color .22s ease}
+.item-info p{color:var(--muted);font-size:1rem}
+.portfolio-item:hover .item-info h3{color:var(--accent)}
+
+/* Remove underline from portfolio links and ensure accessible focus */
+.portfolio-item{text-decoration:none;color:inherit;display:block}
+.portfolio-item:focus{outline:none}
+.portfolio-item:focus-visible{box-shadow:0 0 0 4px var(--accent-soft);border-radius:8px}
+
+/* WhatsApp Float (igual que en style.css) */
+.whatsapp-float{position:fixed;bottom:36px;right:18px;z-index:1100}
+.whatsapp-float a{display:flex;align-items:center;justify-content:center;width:54px;height:54px;background:var(--accent);color:var(--primary);border-radius:50%;font-size:1.4rem;box-shadow:0 8px 20px rgba(2,6,10,0.12);transition:var(--transition)}
+
+/* Emphasize titles */
+.item-info h3 { color: var(--accent); }
+
+
+/* Media Queries */
+
+@media(min-width:768px){.grid{grid-template-columns:repeat(2,1fr)}.portfolio-hero{padding:140px 0 60px}.portfolio-hero h1{font-size:2.4rem}}
+@media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr);justify-items:stretch}.portfolio-item{max-width:none}}
+
+/* Lightbox / Gallery styles */
+.lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:22000}
+.lightbox[aria-hidden="false"]{display:flex}
+.lightbox-overlay{position:fixed;inset:0;background:rgba(2,6,10,0.8)}
+.lightbox-dialog{position:relative;max-width:1100px;width:94%;z-index:22010}
+.lightbox-inner{position:relative;background:var(--bg);padding:18px;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,0.6);display:flex;align-items:center;gap:18px}
+.lightbox-image{max-width:60%;height:auto;border-radius:8px;box-shadow:var(--shadow)}
+.lightbox-caption{color:var(--muted);max-width:40%;font-size:1rem}
+.lightbox-title{margin:0;color:var(--text)}
+
+/* Thumbnail strip inside lightbox */
+.lightbox-thumbs{display:flex;gap:8px;margin-top:12px;align-items:center;overflow-x:auto;padding-bottom:6px}
+.lightbox-thumb{border:0;background:transparent;padding:0;border-radius:6px;cursor:pointer;flex:0 0 auto;box-shadow:0 6px 18px rgba(0,0,0,0.12);overflow:hidden}
+.lightbox-thumb img{width:64px;height:48px;object-fit:cover;display:block}
+.lightbox-thumb.active{outline:3px solid var(--accent);border-radius:6px}
+
+@media(max-width:800px){.lightbox-caption{max-width:100%;text-align:center}.lightbox-thumbs{justify-content:center}}
+.lightbox-close{position:absolute;right:8px;top:6px;background:transparent;border:none;color:var(--text);font-size:1.6rem;cursor:pointer}
+.lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.4);border:none;color:var(--text);width:44px;height:44px;border-radius:50%;cursor:pointer}
+.lightbox-prev{left:-18px}.lightbox-next{right:-18px}
+@media(max-width:800px){.lightbox-inner{flex-direction:column}.lightbox-image{max-width:100%}.lightbox-caption{max-width:100%}.lightbox-prev,.lightbox-next{display:none}}
+
+/* Match site animations */
+.lightbox-dialog{transform:translateY(8px) scale(.99);opacity:0;transition:transform .36s cubic-bezier(.22,.9,.35,1),opacity .36s cubic-bezier(.22,.9,.35,1)}
+.lightbox[aria-hidden="false"] .lightbox-dialog{transform:none;opacity:1}
