@@ -1,0 +1,24 @@
+{
+  "name": "creative-media-site",
+  "version": "1.0.0",
+  "description": "Sitio estático para CreativeMedia - productora multimedia",
+  "scripts": {
+    "start:static-python": "python -m http.server 8000 --directory .",
+    "start:static-node": "npx http-server -p 8000",
+    "build": "node scripts/build.js",
+    "serve:dist": "npx http-server dist -p 8080",
+    "lint:css": "stylelint \"css/**/*.css\" --allow-empty-input",
+    "format": "prettier --write \"**/*.{html,css,js,json,md}\""
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.0",
+    "stylelint": "^14.0.0",
+    "stylelint-config-standard": "^29.0.0",
+    "http-server": "^14.1.1",
+    "uglify-js": "^3.17.4",
+    "clean-css-cli": "^6.0.0"
+  }
+}

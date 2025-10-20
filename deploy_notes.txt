@@ -1,0 +1,8 @@
+Deployment checklist:
+
+- Update contact email and phone in the footer if needed.
+- Replace placeholder gallery images (assets/blog3.jpg) with final project thumbnails and update paths in portfolio-* pages.
+- If you want to minify assets during build, run: npm install && npm run build (requires devDependencies installation).
+- Configure hosting provider (Netlify/Vercel/GitHub Pages): set build command `npm run build` and publish folder `dist/`.
+- (Optional) Add analytics script to `index.html` and other pages before building for production.
+- (Optional) Add SSL configuration if your host requires special settings.

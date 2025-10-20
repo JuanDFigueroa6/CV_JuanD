@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JuanD Figueroa | Productor Multimedia</title>
+    <meta name="description" content="JuanD Figueroa - productor multimedia especializado en video, fotografía y motion graphics. Producción, dirección y post-producción.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="/index.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="JuanD Figueroa | Productor Multimedia">
+    <meta property="og:description" content="Producción de video, fotografía y motion graphics por JuanD Figueroa. Transformo ideas en contenido visual impactante.">
+    <meta property="og:image" content="/assets/blog3.jpg">
+    <meta property="og:url" content="/index.html">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JuanD Figueroa | Productor Multimedia">
+    <meta name="twitter:description" content="Producción de video, fotografía y motion graphics por JuanD Figueroa.">
+    <meta name="twitter:image" content="/assets/blog3.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicons: primary PNG and sized alternatives -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/portafolio/Personal_brand_300725 (5).png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/portafolio/Personal_brand_300725 (3).png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/portafolio/Personal_brand_300725 (1).png">
+    <link rel="mask-icon" href="/assets/portafolio/Personal_brand_300725.png" color="#042940">
+    <link rel="shortcut icon" href="/assets/portafolio/Personal_brand_300725.png">
+    <meta name="theme-color" content="#042940">
+    <!-- Optional manifest.json (create if you want PWA metadata) -->
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body data-page="inicio">
+    <!-- Header y Navegación -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                <span>JuanD Figueroa</span>
+            </div>
+            <a href="index.html" class="header-avatar" aria-label="Ir al inicio" title="Ir al inicio">
+                <img src="assets/avatar.jpg" alt="Avatar JuanD Figueroa" />
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="acerca-de-mi.html">Acerca de mí</a></li>
+                <li><a href="portfolio.html">Portafolio</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+    <div class="hero-bg" aria-hidden="true" style="background-image: linear-gradient(to bottom, rgba(2,6,10,0) 60%, var(--bg) 100%), url('assets/blog3.jpg')"></div>
+    <div class="container module">
+            <div class="hero-content">
+                <div class="hero-text animate-left">
+                    <h1>Contenidos visuales que pegan, venden y no aburren</h1>
+                    <p>Soy JuanD — Productor Multimedia.<br> Hago videos, fotos y motion con personalidad. Si buscas contenido que deje huella y mueva gente, estás en el lugar correcto.</p>
+                    <div class="hero-btns">
+                        <a href="portfolio.html" class="btn btn-primary btn-portfolio">Mira el trabajo</a>
+                        <a href="contact.html" class="btn btn-secondary">Trabajemos juntos</a>
+                    </div>
+                </div>
+                <!--<div class="hero-image animate-right">
+                     Carousel: progressive enhancement - JS will control slides 
+                    <div class="carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="Galería de trabajos recientes">
+                        <div class="carousel-track">
+                            <div class="carousel-slide" data-index="0" aria-hidden="false">
+                                <img src="assets/blog3.jpg" alt="Trabajo destacado 1" />
+                            </div>
+                            <div class="carousel-slide" data-index="1" aria-hidden="true">
+                                <img src="assets/avatar.jpg" alt="Trabajo destacado 2" />
+                            </div>
+                            <div class="carousel-slide" data-index="2" aria-hidden="true">
+                                <img src="assets/service-photo.svg" alt="Trabajo destacado 3" />
+                            </div>
+                            <div class="carousel-slide" data-index="3" aria-hidden="true">
+                                <img src="assets/service-video.svg" alt="Trabajo destacado 4" />
+                            </div>
+                            <div class="carousel-slide" data-index="4" aria-hidden="true">
+                                <img src="assets/blog3.jpg" alt="Trabajo destacado 5" />
+                            </div>
+                        </div>
+                        <button class="carousel-prev" aria-label="Anterior">‹</button>
+                        <button class="carousel-next" aria-label="Siguiente">›</button>
+                        <div class="carousel-dots" role="tablist" aria-label="Navegación de diapositivas">
+                            <button class="dot" data-slide="0" role="tab" aria-selected="true" aria-controls="slide-0"></button>
+                            <button class="dot" data-slide="1" role="tab" aria-selected="false" aria-controls="slide-1"></button>
+                            <button class="dot" data-slide="2" role="tab" aria-selected="false" aria-controls="slide-2"></button>
+                            <button class="dot" data-slide="3" role="tab" aria-selected="false" aria-controls="slide-3"></button>
+                            <button class="dot" data-slide="4" role="tab" aria-selected="false" aria-controls="slide-4"></button>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section class="services section">
+        <div class="container module">
+            <h2 class="section-title">Servicios Profesionales</h2>
+            <div class="services-grid">
+             <div class="service-card" tabindex="0" role="button" aria-pressed="false"
+                 data-img="assets/service-video.svg"
+                 data-desc="Dirijo y produzco proyectos de video desde el concepto hasta la entrega: rodaje multicámara, dirección creativa y edición profesional enfocados en resultados." 
+                 data-bullets="Concepto y guion||Rodaje||Edición y entrega" 
+                 data-cta-text="Contáctame"
+                 data-cta-url="contact.html">
+                    <button class="service-icon-btn" aria-label="Ver detalles: Producción de Video">
+                        <i class="fas fa-video service-icon" aria-hidden="true"></i>
+                    </button>
+                    <h3>Producción de Video</h3>
+                    <p>Videoclips, spots publicitarios y contenido para plataformas digitales que convierten.</p>
+                </div>
+             <div class="service-card" tabindex="0" role="button" aria-pressed="false"
+                 data-img="assets/service-photo.svg"
+                 data-desc="Realizo sesiones de fotografía comercial y de producto con dirección de arte y retoque profesional para mejorar la conversión de tus piezas visuales." 
+                 data-bullets="Sesiones en estudio||Fotografía de producto||Retoque profesional"
+                 data-cta-text="Contáctame"
+                 data-cta-url="contact.html">
+                    <button class="service-icon-btn" aria-label="Ver detalles: Fotografía Profesional">
+                        <i class="fas fa-camera service-icon" aria-hidden="true"></i>
+                    </button>
+                    <h3>Fotografía</h3>
+                    <p>Sesiones de producto, retratos y contenido comercial listos para publicar.</p>
+                </div>
+             <div class="service-card" tabindex="0" role="button" aria-pressed="false"
+                 data-img="assets/service-motion.svg"
+                 data-desc="Creo animaciones y motion graphics que potencian tu mensaje con claridad y estilo." 
+                 data-bullets="Concepto y storyboard||Export y optimización"
+                 data-cta-text="Contáctame"
+                 data-cta-url="contact.html">
+                    <button class="service-icon-btn" aria-label="Ver detalles: Motion Graphics">
+                        <i class="fas fa-film service-icon" aria-hidden="true"></i>
+                    </button>
+                    <h3>Motion Graphics</h3>
+                    <p>Animaciones para campañas, presentaciones y redes.</p>
+                </div>
+                
+             <div class="service-card" tabindex="0" role="button" aria-pressed="false"
+                 data-img="assets/service-event.svg"
+                 data-desc="Diseños personalizados, funcionales y llamativos de páginas tipo 'One Page' o sitios web completos." 
+                 data-bullets="Personalización||Diseño según necesidad"
+                 data-cta-text="Contáctame"
+                 data-cta-url="contact.html">
+                    <button class="service-icon-btn" aria-label="Ver detalles: Producción de Eventos">
+                        <i class="fas fa-solid fa-code service-icon" aria-hidden="true"></i>
+                    </button>
+                    <h3>Desarrollo web</h3>
+                    <p>Desarrollo de páginas web a medida y con diseño mobile-first.</p>
+                </div>
+             <div class="service-card" tabindex="0" role="button" aria-pressed="false"
+                 data-img="assets/service-product.svg"
+                 data-desc="Grabación de voces en off para videos. Locución de podcast." 
+                 data-bullets="Redacción de guión||Grabación de voz||Postproducción"
+                 data-cta-text="Contáctame"
+                 data-cta-url="contact.html">
+                    <button class="service-icon-btn" aria-label="Ver detalles: Fotografía de Producto">
+                        <i class="fas fa-microphone-lines service-icon" aria-hidden="true"></i>
+                    </button>
+                    <h3>Locución y Voz comercial</h3>
+                    <p>Grabación y producción de voces en off para videos, anuncios y presentaciones.</p>
+                </div>
+             <div class="service-card" tabindex="0" role="button" aria-pressed="false"
+                 data-img="assets/service-motion-adv.svg"
+                 data-desc="Proyectos avanzados de motion graphics y secuencias animadas para campañas y piezas premium." 
+                 data-bullets="Diseño de key visual||Adaptación a formatos digitales||Entrega final"
+                 data-cta-text="Contáctame"
+                 data-cta-url="contact.html">
+                    <button class="service-icon-btn" aria-label="Ver detalles: Motion Graphics Avanzado">
+                        <i class="fas fa-pen-nib service-icon" aria-hidden="true"></i>
+                    </button>
+                    <h3>Creativo Gráfico</h3>
+                    <p>Diseño digital e impreso de conceptos visuales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- WhatsApp Float -->
+<div class="whatsapp-float">
+    <a href="https://wa.me/573118253267?text=¡Hola!%20Quisiera%20más%20información%20sobre%20tus%20servicios." target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+
+    <!-- Modal reutilizable para servicios -->
+    <div id="serviceModal" class="modal" aria-hidden="true">
+        <div class="modal-overlay" data-dismiss="modal"></div>
+        <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+            <button class="modal-close" aria-label="Cerrar">&times;</button>
+            <div class="modal-content">
+                <div class="modal-grid">
+                    <div class="modal-image">
+                        <img id="serviceModalImg" src="" alt="" />
+                    </div>
+                    <div class="modal-body">
+                        <h3 id="serviceModalTitle"></h3>
+                        <p id="serviceModalDesc"></p>
+                        <ul id="serviceModalBullets" class="service-bullets"></ul>
+                        <div class="modal-cta">
+                           <a id="serviceModalCTA" class="btn btn-portfolio" href="#">Acción</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating page indicator -->
+    <div id="pageIndicator" class="page-indicator" aria-hidden="true">Inicio</div>
+
+    <script src="js/activeIndicator.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/scrypt.js"></script>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>JuanD Figueroa</h4>
+                <p>Productor multimedia — video, fotografía y motion graphics.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Tel: +57 311 825 3267</p>
+                <p>Email: <a href="mailto:juanfigueroat.jf@gmail.com">juanfigueroat.jf@gmail.com</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Sígueme</h4>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/juand-figueroa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://wa.me/573118253267?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    <div class="footer-bottom">© <span id="year"></span> JuanD Figueroa. Todos los derechos reservados.</div>
+    </footer>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "JuanD Figueroa - Productor Multimedia",
+            "url": "/",
+            "logo": "/assets/avatar.jpg",
+            "sameAs": ["https://www.instagram.com/yourprofile","https://www.facebook.com/yourprofile"]
+        }
+        </script>
+</body>
+</html>
